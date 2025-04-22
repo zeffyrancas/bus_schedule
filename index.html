@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>時刻表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/sanitize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>バスの時刻表</h1>
+    <p class="update">更新日：<span id="update_day"></span></p>
+    
+    <div class="des_grid">
+        <button class="des_btn" id="university">瀬田公園〜龍谷大学</button>
+        <button class="des_btn" id="station">瀬田公園〜瀬田駅</button>
+    </div>
+    <div class="daiya_grid">
+        <p id="daiya"></p>
+        <button id="daiya_change">平日/休日 ダイヤ変更</button>
+        <div></div>
+    </div>
+    <div class="station_back">
+        <p class="station">出発：瀬田公園</p>
+        <p class="station">到着：<span id="destination">龍谷大学</span></p>
+    </div>
+
+    <div class="next">
+        <p class="now">現在時刻：<span id="time"></span></p>
+        <div >
+            <div class="next_grid">
+                <p class="next_left in_next_grid">次の出発時刻：</p>
+                <p  class="in_next_grid" id="first_next"></p>
+            </div>
+            <p class="until_departure">出発まで</p>
+            <div class="next_div">
+                <p class="next_time" id="first_next_time"></p>
+            </div>
+            <div class="next_grid">
+                <p class="next_left in_next_grid">2本先の出発時刻：</p>
+                <p class="in_next_grid" id="second_next"></p>
+            </div>
+            <p class="until_departure">出発まで</p>
+            <div class="next_div">
+                <p class="next_time" id="second_next_time"></p>
+            </div>
+        </div>
+    </div>
+    <div class="to_schedule">
+        <button class="to_schedule_btn" onclick="location.href='schedule.html'">時刻表を表示</button>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

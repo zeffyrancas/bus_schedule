@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 9px;
+    font-size: 26px;
+    text-align: center;
+}
+
+.update {
+    font-size: small;
+    margin: 0px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.des_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.des_btn {
+    font-size: 18px;
+    height: 60px;
+    width: 100%;
+    color: black;
+}
+
+.daiya_grid {
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: 5fr 4fr 1fr;
+}
+
+#daiya {
+    text-align: right;
+    padding-right: 30px;
+}
+
+#daiya_change {
+    margin-top: 10px;
+    height: 40px;
+}
+
+.station_back {
+    background-color: antiquewhite;
+}
+
+.station {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.now {
+    text-align: center;
+    font-size: 26px;
+    margin: 15px 0px;
+}
+.next_grid {
+    display: grid;
+    grid-template-columns: 2.5fr 2fr;
+    margin: 5px 5px;
+    font-size: 22px;
+    height: 40px;
+}
+
+.in_next_grid {
+    margin: 0px;
+}
+
+.next_left {
+    text-align: right;
+}
+
+.until_departure {
+    margin-bottom: 0px;
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+.next_div {
+    width: 220px;
+    background-color: aliceblue;
+    margin: auto;
+    border-radius: 45%;
+    margin-top: 0;
+}
+
+.next_time {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px 15px;
+    
+}
+
+.to_schedule {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.to_schedule_btn{
+    font-size: 18px;
+    padding: 10px ;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: black;
+}

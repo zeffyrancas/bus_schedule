@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>時刻表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/sanitize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/schedule.css">
+</head>
+<body>
+    <h1>バスの時刻表</h1>
+    <p class="update">更新日：<span id="update_day"></span></p>
+    
+    <div class="des_grid">
+        <button class="des_btn" id="university">瀬田公園〜龍谷大学</button>
+        <button class="des_btn" id="station">瀬田公園〜瀬田駅</button>
+    </div>
+    <div class="daiya_grid">
+        <p id="daiya"></p>
+        <button id="daiya_change">平日/休日 ダイヤ変更</button>
+        <div></div>
+    </div>
+    <div class="station_back">
+        <p class="station">出発：瀬田公園</p>
+        <p class="station">到着：<span id="destination">龍谷大学</span></p>
+    </div>
+
+    <p class="now">現在時刻：<span id="time"></span></p>
+
+    <div class="scroll-box">
+    </div>
+    <div class="to_schedule">
+        <button class="to_schedule_btn" onclick="location.href='index.html'">メインに戻る</button>
+    </div>
+    <script src="js/schedule.js"></script>
+</body>
+</html>

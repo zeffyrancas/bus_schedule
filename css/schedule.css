@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.scroll-box {
+    margin: auto;
+    width: 80%;
+    height: 330px; 
+    overflow-y: scroll;
+    border: 2px solid #999;
+    padding: 10px;
+    background: #f5f5f5;
+  }
+  
+.item {
+    background: #e0e0e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
