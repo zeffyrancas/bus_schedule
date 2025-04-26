@@ -21,21 +21,51 @@ let is_week_jp = null
 let is_week_change = true
 
 $university.addEventListener("click", () => {
+    init_box()
     distination = university
     $destination.textContent = distination
 })
 
 $station.addEventListener("click", () => {
+    init_box()
     distination = station
     $destination.textContent = distination
 })
 
 $daiya_change.addEventListener("click", () => {
+    init_box()
     is_week_change = false
-    is_week = (is_week=="weekend") ? "weekday" : "weekend"
-    is_week_jp = (is_week_jp=="休日ダイヤ") ? "平日ダイヤ" : "休日ダイヤ"
+    is_week = daiya_change(is_week)
+    is_week_jp = daiya_change_jp(is_week_jp)
     $daiya.textContent = is_week_jp
 })
+
+function init_box(){
+    $first_next.textContent = ""
+    $first_next_time.textContent = ""
+    $second_next.textContent = ""
+    $second_next_time.textContent = ""
+}
+
+function daiya_change(is_week){
+    if(is_week == "weekday"){
+        return "saturday"
+    }else if(is_week == "saturday"){
+        return "other"
+    }else if(is_week == "other"){
+        return "weekday"
+    }
+}
+
+function daiya_change_jp(is_week){
+    if(is_week == "平日ダイヤ"){
+        return "土曜ダイヤ"
+    }else if(is_week == "土曜ダイヤ"){
+        return "日祝ダイヤ"
+    }else if(is_week == "日祝ダイヤ"){
+        return "平日ダイヤ"
+    }
+}
 
 function is_noon(num){
     if(num < 13){
@@ -167,12 +197,32 @@ function make_dates(date,array){
     return make_date
 }
 
+function week(weekday){
+    if(0 < weekday && weekday < 5){
+        return "weekday"
+    }else if(weekday == 6){
+        return "saturday"
+    }else{
+        return "other"
+    }
+} 
+
+function week_jp(weekday){
+    if(0 < weekday && weekday < 5){
+        return "平日ダイヤ"
+    }else if(weekday == 6){
+        return "土曜ダイヤ"
+    }else{
+        return "日祝ダイヤ"
+    }
+} 
+
 function main(){
     const date = new Date
     if(is_week_change){
         const weekday = date.getDay()
-        is_week = (0 < weekday && weekday < 6) ? "weekday" : "weekend"
-        is_week_jp = "休日ダイヤ" ? "平日ダイヤ" : "休日ダイヤ"
+        is_week = week(weekday)
+        is_week_jp = week_jp(weekday)
         $daiya.textContent = is_week_jp
     }    
     nowtime(date)
@@ -180,6 +230,7 @@ function main(){
 }
 
 window.onload = function(){
+    init_box()
     fetch("data/timetable.json")
         .then(response => response.json())
         .then(data => {
