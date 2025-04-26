@@ -169,7 +169,7 @@ function bus_next(date){
     }
 
     if(is_first_next){
-        const first_time = make_dates(date2,first)
+        const first_time = make_dates(date2, first)
         $first_next.textContent = date_str(first_time,false)
         $first_next_time.textContent = diff(date,first_time)
         if(is_second_next){
