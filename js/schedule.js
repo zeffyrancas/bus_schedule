@@ -19,23 +19,43 @@ let is_week_change = true
 
 $university.addEventListener("click", () => {
     distination = university
-    set_box()
     $destination.textContent = distination
+    set_box()
 })
 
 $station.addEventListener("click", () => {
     distination = station
-    set_box()
     $destination.textContent = distination
+    set_box()
 })
 
 $daiya_change.addEventListener("click", () => {
     is_week_change = false
-    is_week = (is_week=="weekend") ? "weekday" : "weekend"
-    is_week_jp = (is_week_jp=="休日ダイヤ") ? "平日ダイヤ" : "休日ダイヤ"
-    set_box()
+    is_week = daiya_change(is_week)
+    is_week_jp = daiya_change_jp(is_week_jp)
     $daiya.textContent = is_week_jp
+    set_box()
 })
+
+function daiya_change(is_week){
+    if(is_week == "weekday"){
+        return "saturday"
+    }else if(is_week == "saturday"){
+        return "other"
+    }else if(is_week == "other"){
+        return "weekday"
+    }
+}
+
+function daiya_change_jp(is_week){
+    if(is_week == "平日ダイヤ"){
+        return "土曜ダイヤ"
+    }else if(is_week == "土曜ダイヤ"){
+        return "日祝ダイヤ"
+    }else if(is_week == "日祝ダイヤ"){
+        return "平日ダイヤ"
+    }
+}
 
 function is_noon(num){
     if(num < 13){
@@ -128,12 +148,32 @@ function set_box(){
     }
 }
 
+function week(weekday){
+    if(0 < weekday && weekday < 5){
+        return "weekday"
+    }else if(weekday == 6){
+        return "saturday"
+    }else{
+        return "other"
+    }
+} 
+
+function week_jp(weekday){
+    if(0 < weekday && weekday < 5){
+        return "平日ダイヤ"
+    }else if(weekday == 6){
+        return "土曜ダイヤ"
+    }else{
+        return "日祝ダイヤ"
+    }
+} 
+
 function main(){
     const date = new Date
     if(is_week_change){
         const weekday = date.getDay()
-        is_week = (0 < weekday && weekday < 6) ? "weekday" : "weekend"
-        is_week_jp = "休日ダイヤ" ? "平日ダイヤ" : "休日ダイヤ"
+        is_week = week(weekday)
+        is_week_jp = week_jp(weekday)
         $daiya.textContent = is_week_jp
     }    
     nowtime(date)
@@ -145,8 +185,8 @@ window.onload = function(){
         .then(data => {
             const date = new Date
             const weekday = date.getDay()
-            is_week = (0 < weekday && weekday < 6) ? "weekday" : "weekend"
-            is_week_jp = "休日ダイヤ" ? "平日ダイヤ" : "休日ダイヤ"
+            is_week = week(weekday)
+            is_week_jp = week_jp(weekday)
             $daiya.textContent = is_week_jp
             timetable = data
             $update_day.textContent = timetable["更新日"]
