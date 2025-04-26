@@ -84,7 +84,7 @@ function zero(num){
     }
 }
 
-function date_str(date,flag){
+function date_str(date, flag){
     const hour = date.getHours()
     const minute = date.getMinutes()
     const second = date.getSeconds()
